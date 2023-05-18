@@ -1,8 +1,9 @@
+import { VerifiedNetworkWallet } from './components/VerifiedNetworkWallet';
 
 function App() {
   return (
-    <div >
-      React App
+    <div>
+      <VerifiedNetworkWallet />
     </div>
   );
 }
