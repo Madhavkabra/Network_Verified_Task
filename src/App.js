@@ -12,6 +12,7 @@ import { Container } from './components/Container';
 import { Heading } from './components/Heading';
 import { AddWallet } from './components/AddWallet';
 import { useWalletContext } from './store/wallet/walletContext';
+import { ShowWallet } from './components/ShowWallet';
 
 function App() {
   const [wcURI, setWcURI] = useState('');
@@ -138,47 +139,48 @@ function App() {
       {!verifiedWallet ? (
         <AddWallet />
       ) : (
-        <Container>
-          <Heading title='Heading' />
-          <div>
-            <div>
-              <p>Network verified Wallet</p>
-              <p>ETH Address</p>
-              <p>{currentETHAddress ? currentETHAddress : 'Loading...'}</p>
-            </div>
+        <ShowWallet />
+        // <Container>
+        //   <Heading title='Heading' />
+        //   <div>
+        //     <div>
+        //       <p>Network verified Wallet</p>
+        //       <p>ETH Address</p>
+        //       <p>{currentETHAddress ? currentETHAddress : 'Loading...'}</p>
+        //     </div>
 
-            <div>
-              {!successfulSession ? (
-                <>
-                  <input
-                    placeholder='Enter WC URI (wc:2131...)'
-                    value={wcURI}
-                    onChange={handleWcURIChange}
-                  />
+        //     <div>
+        //       {!successfulSession ? (
+        //         <>
+        //           <input
+        //             placeholder='Enter WC URI (wc:2131...)'
+        //             value={wcURI}
+        //             onChange={handleWcURIChange}
+        //           />
 
-                  <button onClick={handlePairSession}>Pair Session</button>
-                </>
-              ) : (
-                <button onClick={disconnectSessions}>Disconnect Session</button>
-              )}
-            </div>
+        //           <button onClick={handlePairSession}>Pair Session</button>
+        //         </>
+        //       ) : (
+        //         <button onClick={disconnectSessions}>Disconnect Session</button>
+        //       )}
+        //     </div>
 
-            {proposal && (
-              <PairingModal
-                onAccept={handleAcceptSessionProposal}
-                onCancel={handleCancelSessionProposal}
-                currentProposal={proposal}
-              />
-            )}
+        //     {proposal && (
+        //       <PairingModal
+        //         onAccept={handleAcceptSessionProposal}
+        //         onCancel={handleCancelSessionProposal}
+        //         currentProposal={proposal}
+        //       />
+        //     )}
 
-            <SigningModal
-              requestEvent={requestEventData}
-              requestSession={requestSession}
-              setRequestEvent={setRequestEventData}
-              setRequestSession={setRequestSession}
-            />
-          </div>
-        </Container>
+        //     <SigningModal
+        //       requestEvent={requestEventData}
+        //       requestSession={requestSession}
+        //       setRequestEvent={setRequestEventData}
+        //       setRequestSession={setRequestSession}
+        //     />
+        //   </div>
+        // </Container>
       )}
     </>
   );

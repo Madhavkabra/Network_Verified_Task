@@ -2,17 +2,25 @@ import React, { useState } from 'react';
 import { WalletContext } from './walletContext';
 
 export const WalletContextProvider = ({ children }) => {
-  const [wallet, setWallet] = useState();
+  const [walletData, setWalletData] = useState({
+    verifiedWallet: null,
+    ethAddress: '',
+  });
 
   const handleSetVerifiedWallet = (verifiedWallet) => {
-    setWallet(verifiedWallet);
+    setWalletData((data) => ({ ...data, verifiedWallet }));
+  };
+
+  const handleSetEthAddress = (address) => {
+    setWalletData((data) => ({ ...data, ethAddress: address }));
   };
 
   return (
     <WalletContext.Provider
       value={{
-        verifiedWallet: wallet,
+        ...walletData,
         setVerifiedWallet: handleSetVerifiedWallet,
+        setEthAddress: handleSetEthAddress,
       }}
     >
       {children}

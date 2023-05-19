@@ -8,12 +8,13 @@ import styles from './styles.module.css';
 import { useWalletContext } from '../../store/wallet/walletContext';
 
 export const AddWallet = () => {
-  const { setVerifiedWallet } = useWalletContext();
+  const { setVerifiedWallet, setEthAddress } = useWalletContext();
 
   const handleCreateWallet = () => {
     const wallet = VerifiedWallet.createWallet();
 
     setVerifiedWallet(wallet);
+    setEthAddress(wallet.address);
   };
 
   const handleImportMnemonicsWallet = async () => {
@@ -21,6 +22,7 @@ export const AddWallet = () => {
     const wallet = VerifiedWallet.importWallet(mnemonics);
 
     setVerifiedWallet(wallet);
+    setEthAddress(wallet.address);
   };
 
   return (
