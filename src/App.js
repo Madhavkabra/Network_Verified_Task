@@ -2,13 +2,16 @@ import { useState, useCallback, useEffect } from 'react';
 import { getSdkError } from '@walletconnect/utils';
 import {
   currentETHAddress,
-  useInitialization,
   web3WalletPair,
   web3wallet,
 } from './services/walletConnect/web3wallet/walletConnectUtils';
 import PairingModal from './components/PairingModal';
 import { EIP155_SIGNING_METHODS } from './services/walletConnect/web3wallet/eip155Lib';
 import SigningModal from './components/SigningModal';
+import { Container } from './components/Container';
+import { Heading } from './components/Heading';
+import { verifiedWallet } from './services/verifiedNetwork/walletCreateUtils';
+import { VerifiedNetworkWallet } from './components/VerifiedNetworkWallet';
 
 function App() {
   const [wcURI, setWcURI] = useState('');
@@ -16,8 +19,6 @@ function App() {
   const [requestSession, setRequestSession] = useState('');
   const [requestEventData, setRequestEventData] = useState('');
   const [successfulSession, setSuccessfulSession] = useState(false);
-
-  useInitialization();
 
   const handleWcURIChange = (event) => {
     setWcURI(event.target.value);
@@ -131,44 +132,53 @@ function App() {
   ]);
 
   return (
-    <div>
-      <div>
-        <p>Network verified Wallet</p>
-        <p>ETH Address</p>
-        <p>{currentETHAddress ? currentETHAddress : 'Loading...'}</p>
-      </div>
+    <>
+      {!verifiedWallet ? (
+        <VerifiedNetworkWallet />
+      ) : (
+        <Container>
+          <Heading title='Heading' />
+          <div>
+            <div>
+              <p>Network verified Wallet</p>
+              <p>ETH Address</p>
+              <p>{currentETHAddress ? currentETHAddress : 'Loading...'}</p>
+            </div>
 
-      <div>
-        {!successfulSession ? (
-          <>
-            <input
-              placeholder='Enter WC URI (wc:2131...)'
-              value={wcURI}
-              onChange={handleWcURIChange}
+            <div>
+              {!successfulSession ? (
+                <>
+                  <input
+                    placeholder='Enter WC URI (wc:2131...)'
+                    value={wcURI}
+                    onChange={handleWcURIChange}
+                  />
+
+                  <button onClick={handlePairSession}>Pair Session</button>
+                </>
+              ) : (
+                <button onClick={disconnectSessions}>Disconnect Session</button>
+              )}
+            </div>
+
+            {proposal && (
+              <PairingModal
+                onAccept={handleAcceptSessionProposal}
+                onCancel={handleCancelSessionProposal}
+                currentProposal={proposal}
+              />
+            )}
+
+            <SigningModal
+              requestEvent={requestEventData}
+              requestSession={requestSession}
+              setRequestEvent={setRequestEventData}
+              setRequestSession={setRequestSession}
             />
-
-            <button onClick={handlePairSession}>Pair Session</button>
-          </>
-        ) : (
-          <button onClick={disconnectSessions}>Disconnect Session</button>
-        )}
-      </div>
-
-      {proposal && (
-        <PairingModal
-          onAccept={handleAcceptSessionProposal}
-          onCancel={handleCancelSessionProposal}
-          currentProposal={proposal}
-        />
+          </div>
+        </Container>
       )}
-
-      <SigningModal
-        requestEvent={requestEventData}
-        requestSession={requestSession}
-        setRequestEvent={setRequestEventData}
-        setRequestSession={setRequestSession}
-      />
-    </div>
+    </>
   );
 }
 

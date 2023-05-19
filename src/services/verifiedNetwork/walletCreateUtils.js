@@ -9,3 +9,8 @@ export const createWallet = async () => {
 
   return { wallet, address: wallet.address };
 };
+
+export const importMnemonicsWallet = async () => {
+  const mnemonics = await VerifiedWallet.generateMnemonic();
+  verifiedWallet = VerifiedWallet.importWallet(mnemonics);
+};
