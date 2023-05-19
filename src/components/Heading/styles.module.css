@@ -1,0 +1,14 @@
+.title {
+  color: var(--color-white);
+  background-image: linear-gradient(
+    90deg,
+    var(--color-purple500),
+    var(--color-blue500) 30%
+  );
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.divider {
+  border-color: var(--color-gray700);
+}
