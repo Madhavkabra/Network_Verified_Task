@@ -10,7 +10,7 @@ import { EIP155_SIGNING_METHODS } from './services/walletConnect/web3wallet/eip1
 import SigningModal from './components/SigningModal';
 import { Container } from './components/Container';
 import { Heading } from './components/Heading';
-import { VerifiedNetworkWallet } from './components/VerifiedNetworkWallet';
+import { AddWallet } from './components/AddWallet';
 import { useWalletContext } from './store/wallet/walletContext';
 
 function App() {
@@ -136,7 +136,7 @@ function App() {
   return (
     <>
       {!verifiedWallet ? (
-        <VerifiedNetworkWallet />
+        <AddWallet />
       ) : (
         <Container>
           <Heading title='Heading' />

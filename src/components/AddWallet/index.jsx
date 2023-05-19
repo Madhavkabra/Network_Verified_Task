@@ -7,7 +7,7 @@ import { Button } from '../Button';
 import styles from './styles.module.css';
 import { useWalletContext } from '../../store/wallet/walletContext';
 
-export const VerifiedNetworkWallet = () => {
+export const AddWallet = () => {
   const { setVerifiedWallet } = useWalletContext();
 
   const handleCreateWallet = () => {
