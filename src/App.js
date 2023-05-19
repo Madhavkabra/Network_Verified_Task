@@ -10,8 +10,8 @@ import { EIP155_SIGNING_METHODS } from './services/walletConnect/web3wallet/eip1
 import SigningModal from './components/SigningModal';
 import { Container } from './components/Container';
 import { Heading } from './components/Heading';
-import { verifiedWallet } from './services/verifiedNetwork/walletCreateUtils';
 import { VerifiedNetworkWallet } from './components/VerifiedNetworkWallet';
+import { useWalletContext } from './store/wallet/walletContext';
 
 function App() {
   const [wcURI, setWcURI] = useState('');
@@ -19,6 +19,8 @@ function App() {
   const [requestSession, setRequestSession] = useState('');
   const [requestEventData, setRequestEventData] = useState('');
   const [successfulSession, setSuccessfulSession] = useState(false);
+
+  const { verifiedWallet } = useWalletContext();
 
   const handleWcURIChange = (event) => {
     setWcURI(event.target.value);
