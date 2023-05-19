@@ -1,0 +1,25 @@
+.button {
+  padding: 8px 12px;
+  font-size: 16px;
+
+  border: 1px solid;
+  outline: none;
+  border-radius: 8px;
+
+  cursor: pointer;
+  width: 100%;
+}
+
+.button:hover {
+  opacity: 0.9;
+}
+
+.buttonError {
+  background-color: var(--color-red900);
+  color: var(--color-red500);
+}
+
+.buttonWarning {
+  background-color: var(--color-yellow900);
+  color: var(--color-yellow500);
+}
