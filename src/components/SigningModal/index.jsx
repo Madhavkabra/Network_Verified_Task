@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
   approveEIP155Request,
   rejectEIP155Request,
@@ -7,13 +8,13 @@ import { web3wallet } from '../../services/walletConnect/web3wallet/walletConnec
 import { getSignParamsMessage } from '../../services/walletConnect/web3wallet/helpers';
 import { Modal } from '../Modal';
 import { Heading } from '../Heading';
-import styles from './styles.module.css';
 import { Button } from '../Button';
 import { useWalletContext } from '../../store/wallet';
 import { isJson } from '../../utils/helper';
 import { EIP155_SIGNING_NAME } from '../../services/walletConnect/web3wallet/eip155Lib';
+import styles from './styles.module.css';
 
-const SigningModal = ({
+export const SigningModal = ({
   requestSession,
   requestEvent,
   setRequestSession,
@@ -136,4 +137,11 @@ const SigningModal = ({
   );
 };
 
-export default SigningModal;
+SigningModal.propTypes = {
+  requestSession: PropTypes.oneOfType([PropTypes.object, PropTypes.string])
+    .isRequired,
+  requestEvent: PropTypes.oneOfType([PropTypes.object, PropTypes.string])
+    .isRequired,
+  setRequestSession: PropTypes.func.isRequired,
+  setRequestEvent: PropTypes.func.isRequired,
+};

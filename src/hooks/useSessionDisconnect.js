@@ -1,6 +1,6 @@
 import { getSdkError } from '@walletconnect/utils';
-import { web3wallet } from '../services/walletConnect/web3wallet/walletConnectUtils';
 import { useCallback } from 'react';
+import { web3wallet } from '../services/walletConnect/web3wallet/walletConnectUtils';
 
 export const useSessionDisconnect = ({ setSuccessfulSession }) => {
   const disconnectSessions = useCallback(async () => {

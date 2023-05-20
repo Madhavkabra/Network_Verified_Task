@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import { web3wallet } from '../../services/walletConnect/web3wallet/walletConnectUtils';
 import { Container } from '../Container';
 import { Heading } from '../Heading';
@@ -60,4 +61,8 @@ export const PairingList = ({ onBack }) => {
       </div>
     </Container>
   );
+};
+
+PairingList.propTypes = {
+  onBack: PropTypes.func.isRequired,
 };

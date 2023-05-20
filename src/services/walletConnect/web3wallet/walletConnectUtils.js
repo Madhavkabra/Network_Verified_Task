@@ -3,7 +3,6 @@ import { Core } from '@walletconnect/core';
 import { Web3Wallet } from '@walletconnect/web3wallet';
 
 export let web3wallet;
-export let currentETHAddress;
 
 const createWeb3Wallet = async () => {
   const core = new Core({

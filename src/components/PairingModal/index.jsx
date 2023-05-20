@@ -1,11 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Modal } from '../Modal';
 import styles from './styles.module.css';
 import { Heading } from '../Heading';
 import { Button } from '../Button';
 import { EIP155_CHAINS } from '../../services/walletConnect/web3wallet/eip155Lib';
 
-const PairingModal = ({ proposal, onAccept, onCancel }) => {
+export const PairingModal = ({ proposal, onAccept, onCancel }) => {
   if (!proposal) {
     return;
   }
@@ -77,4 +78,9 @@ const PairingModal = ({ proposal, onAccept, onCancel }) => {
   );
 };
 
-export default PairingModal;
+PairingModal.propTypes = {
+  proposal: PropTypes.oneOfType([PropTypes.object, PropTypes.string])
+    .isRequired,
+  onAccept: PropTypes.func.isRequired,
+  onCancel: PropTypes.func.isRequired,
+};

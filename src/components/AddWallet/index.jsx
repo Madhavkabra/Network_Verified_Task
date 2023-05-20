@@ -2,7 +2,6 @@ import { VerifiedWallet } from '@verified-network/verified-sdk';
 import React from 'react';
 import { Container } from '../Container';
 import { Heading } from '../Heading';
-
 import { Button } from '../Button';
 import styles from './styles.module.css';
 import { useWalletContext } from '../../store/wallet/walletContext';

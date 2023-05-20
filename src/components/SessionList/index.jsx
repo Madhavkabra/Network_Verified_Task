@@ -1,5 +1,6 @@
 import { getSdkError } from '@walletconnect/utils';
 import React, { useCallback, useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import { web3wallet } from '../../services/walletConnect/web3wallet/walletConnectUtils';
 import { Container } from '../Container';
 import { Heading } from '../Heading';
@@ -35,6 +36,7 @@ export const SessionList = ({ onBack, setSuccessfulSession }) => {
 
     getSessionList();
     setSuccessfulSession(false);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -65,4 +67,9 @@ export const SessionList = ({ onBack, setSuccessfulSession }) => {
       </div>
     </Container>
   );
+};
+
+SessionList.propTypes = {
+  onBack: PropTypes.func.isRequired,
+  setSuccessfulSession: PropTypes.func.isRequired,
 };
