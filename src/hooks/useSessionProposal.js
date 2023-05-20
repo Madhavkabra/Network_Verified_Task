@@ -76,5 +76,6 @@ export const useSessionProposal = ({ setWcUri }) => {
     successfulSession,
     acceptSessionProposal,
     cancelSessionProposal,
+    setSuccessfulSession,
   };
 };
