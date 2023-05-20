@@ -11,7 +11,10 @@ import { Heading } from '../Heading';
 import { Button } from '../Button';
 import { useWalletContext } from '../../store/wallet';
 import { isJson } from '../../utils/helper';
-import { EIP155_SIGNING_NAME } from '../../services/walletConnect/web3wallet/eip155Lib';
+import {
+  EIP155_CHAINS,
+  EIP155_SIGNING_NAME,
+} from '../../services/walletConnect/web3wallet/eip155Lib';
 import styles from './styles.module.css';
 
 export const SigningModal = ({
@@ -107,7 +110,9 @@ export const SigningModal = ({
 
             <div className={styles.reviewContainer}>
               <p className={styles.heading}>Blockchain</p>
-              <label className={styles.descriptionText}>{chainID}</label>
+              <label className={styles.descriptionText}>
+                {EIP155_CHAINS[chainID.toLowerCase()]?.name || chainID}
+              </label>
 
               <p className={styles.heading}>Methods</p>
               <label className={styles.descriptionText}>{method}</label>

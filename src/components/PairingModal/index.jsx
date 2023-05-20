@@ -79,8 +79,7 @@ export const PairingModal = ({ proposal, onAccept, onCancel }) => {
 };
 
 PairingModal.propTypes = {
-  proposal: PropTypes.oneOfType([PropTypes.object, PropTypes.string])
-    .isRequired,
+  proposal: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   onAccept: PropTypes.func.isRequired,
   onCancel: PropTypes.func.isRequired,
 };
