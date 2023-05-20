@@ -1,0 +1,73 @@
+.root {
+  margin-top: 30px;
+  max-width: 400px;
+}
+
+.basicInfoContainer {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--color-gray700);
+}
+
+.img {
+  height: 40px;
+  width: 40px;
+  border-radius: 999px;
+
+  object-fit: cover;
+}
+
+.nameAndUrlContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.name {
+  font-size: 18px;
+  color: var(--color-white);
+}
+
+.url {
+  font-size: 16px;
+  color: var(--color-blue500);
+}
+
+.heading {
+  font-size: 20px;
+  color: var(--color-white);
+  font-weight: 700;
+}
+
+.subHeading {
+  font-size: 18px;
+  color: var(--color-white);
+  font-weight: 600;
+}
+
+.reviewContainer {
+  padding: 20px;
+  border: 1px solid rgba(99, 125, 234, 0.4);
+  border-radius: 12px;
+  background-color: rgba(99, 125, 234, 0.25);
+  color: var(--color-gray300);
+}
+
+.descriptionText {
+  line-height: 1.5rem;
+}
+
+.actionContainer {
+  margin-top: 50px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+}
+
+.actionContainer > button {
+  width: auto;
+}
