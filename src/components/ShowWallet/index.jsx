@@ -8,6 +8,8 @@ import { web3WalletPair } from '../../services/walletConnect/web3wallet/walletCo
 import styles from './styles.module.css';
 import PairingModal from '../PairingModal';
 import { useSessionProposal } from '../../hooks/useSessionProposal';
+import { useSessionRequest } from '../../hooks/useSessionRequest';
+import SigningModal from '../SigningModal';
 
 export const ShowWallet = () => {
   const [wcUri, setWcUri] = useState('');
@@ -15,6 +17,9 @@ export const ShowWallet = () => {
 
   const { proposal, acceptSessionProposal, cancelSessionProposal } =
     useSessionProposal({ setWcUri });
+
+  const { requestEvent, requestSession, setRequestEvent, setRequestSession } =
+    useSessionRequest();
 
   const handleWcUriChange = (event) => {
     setWcUri(event.target.value);
@@ -52,6 +57,13 @@ export const ShowWallet = () => {
         proposal={proposal}
         onAccept={acceptSessionProposal}
         onCancel={cancelSessionProposal}
+      />
+
+      <SigningModal
+        requestEvent={requestEvent}
+        requestSession={requestSession}
+        setRequestEvent={setRequestEvent}
+        setRequestSession={setRequestSession}
       />
     </Container>
   );

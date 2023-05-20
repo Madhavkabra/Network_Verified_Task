@@ -32,5 +32,5 @@ export const useSessionRequest = () => {
     web3wallet?.on('session_request', onSessionRequest);
   }, [onSessionRequest]);
 
-  return { requestSession, requestEvent };
+  return { requestSession, requestEvent, setRequestEvent, setRequestSession };
 };
