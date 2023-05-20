@@ -6,10 +6,15 @@ import { Input } from '../Input';
 import { Button } from '../Button';
 import { web3WalletPair } from '../../services/walletConnect/web3wallet/walletConnectUtils';
 import styles from './styles.module.css';
+import PairingModal from '../PairingModal';
+import { useSessionProposal } from '../../hooks/useSessionProposal';
 
 export const ShowWallet = () => {
   const [wcUri, setWcUri] = useState('');
   const { ethAddress } = useWalletContext();
+
+  const { proposal, acceptSessionProposal, cancelSessionProposal } =
+    useSessionProposal({ setWcUri });
 
   const handleWcUriChange = (event) => {
     setWcUri(event.target.value);
@@ -42,6 +47,12 @@ export const ShowWallet = () => {
           />
         </div>
       </div>
+
+      <PairingModal
+        proposal={proposal}
+        onAccept={acceptSessionProposal}
+        onCancel={cancelSessionProposal}
+      />
     </Container>
   );
 };
