@@ -2,16 +2,10 @@ import { useState, useCallback, useEffect } from 'react';
 import { Core } from '@walletconnect/core';
 import { Web3Wallet } from '@walletconnect/web3wallet';
 
-import { createWallet } from '../../verifiedNetwork/walletCreateUtils';
-
 export let web3wallet;
 export let currentETHAddress;
 
 const createWeb3Wallet = async () => {
-  // Here we create an verified network wallet
-  const { address } = await createWallet();
-  currentETHAddress = address;
-
   const core = new Core({
     projectId: process.env.REACT_APP_WALLET_CONNECT_PROJECT_ID,
   });

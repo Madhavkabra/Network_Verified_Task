@@ -5,11 +5,10 @@ import {
 import { getSdkError } from '@walletconnect/utils';
 import { Provider } from '@verified-network/verified-sdk';
 
-import { verifiedWallet } from '../../verifiedNetwork/walletCreateUtils';
 import { getSignParamsMessage, getSignTypedDataParamsData } from './helpers';
 import { EIP155_SIGNING_METHODS } from './eip155Lib';
 
-export const approveEIP155Request = async (requestEvent) => {
+export const approveEIP155Request = async (wallet, requestEvent) => {
   const { params, id } = requestEvent;
   const { request } = params;
 
@@ -17,7 +16,7 @@ export const approveEIP155Request = async (requestEvent) => {
     case EIP155_SIGNING_METHODS.PERSONAL_SIGN:
     case EIP155_SIGNING_METHODS.ETH_SIGN:
       const message = getSignParamsMessage(request.params);
-      const signedMessage = await verifiedWallet.signMessage(message);
+      const signedMessage = await wallet.signMessage(message);
       return formatJsonRpcResult(id, signedMessage);
 
     case EIP155_SIGNING_METHODS.ETH_SIGN_TYPED_DATA:
@@ -31,16 +30,12 @@ export const approveEIP155Request = async (requestEvent) => {
 
       delete types.EIP712Domain;
 
-      const signedData = await verifiedWallet._signTypedData(
-        domain,
-        types,
-        data
-      );
+      const signedData = await wallet._signTypedData(domain, types, data);
       return formatJsonRpcResult(id, signedData);
 
     case EIP155_SIGNING_METHODS.ETH_SEND_TRANSACTION:
       const defaultProvider = 'ropsten';
-      let walletWithProvider = verifiedWallet.setProvider(
+      let walletWithProvider = wallet.setProvider(
         Provider.defaultProvider(defaultProvider)
       );
       const sendTransaction = request.params[0];
@@ -50,7 +45,7 @@ export const approveEIP155Request = async (requestEvent) => {
 
     case EIP155_SIGNING_METHODS.ETH_SIGN_TRANSACTION:
       const signTransaction = request.params[0];
-      const signature = await verifiedWallet.signTransaction(signTransaction);
+      const signature = await wallet.signTransaction(signTransaction);
       return formatJsonRpcResult(id, signature);
 
     default:
