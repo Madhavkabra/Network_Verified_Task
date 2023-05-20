@@ -11,6 +11,7 @@ import styles from './styles.module.css';
 import { Button } from '../Button';
 import { useWalletContext } from '../../store/wallet';
 import { isJson } from '../../utils/helper';
+import { EIP155_SIGNING_NAME } from '../../services/walletConnect/web3wallet/eip155Lib';
 
 const SigningModal = ({
   requestSession,
@@ -68,7 +69,7 @@ const SigningModal = ({
 
   return (
     <Modal open>
-      <Heading title={method} />
+      <Heading title={EIP155_SIGNING_NAME[method]} />
 
       <div className={styles.root}>
         <div className={styles.basicInfoContainer}>

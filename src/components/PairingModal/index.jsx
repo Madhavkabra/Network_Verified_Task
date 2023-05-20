@@ -3,6 +3,7 @@ import { Modal } from '../Modal';
 import styles from './styles.module.css';
 import { Heading } from '../Heading';
 import { Button } from '../Button';
+import { EIP155_CHAINS } from '../../services/walletConnect/web3wallet/eip155Lib';
 
 const PairingModal = ({ proposal, onAccept, onCancel }) => {
   if (!proposal) {
@@ -43,7 +44,9 @@ const PairingModal = ({ proposal, onAccept, onCancel }) => {
           <p className={styles.heading}>Review eip155 permissions</p>
 
           <div className={styles.reviewContainer}>
-            <label className={styles.heading}>{chains}</label>
+            <label className={styles.heading}>
+              {EIP155_CHAINS[chains]?.name || chains}
+            </label>
 
             <p className={styles.subHeading}>Methods</p>
             <label className={styles.descriptionText}>
