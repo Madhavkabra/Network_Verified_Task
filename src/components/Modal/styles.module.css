@@ -1,0 +1,15 @@
+.root {
+  position: fixed;
+  z-index: 9999;
+  background-color: rgba(0, 0, 0, 0.5);
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.root > div > div {
+  height: auto;
+  width: auto;
+  min-width: 250px;
+}
