@@ -24,6 +24,6 @@ export const Button = ({ title, onClick, variant, disabled }) => {
 Button.propTypes = {
   title: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
-  variant: PropTypes.oneOf(['error', 'warning']),
+  variant: PropTypes.oneOf(['error', 'warning', 'success']),
   disabled: PropTypes.bool,
 };
