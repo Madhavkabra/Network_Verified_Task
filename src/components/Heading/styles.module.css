@@ -11,4 +11,5 @@
 
 .divider {
   border-color: var(--color-gray700);
+  width: 100%;
 }

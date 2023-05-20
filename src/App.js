@@ -2,6 +2,7 @@ import { useState, useCallback, useEffect } from 'react';
 import { getSdkError } from '@walletconnect/utils';
 import {
   currentETHAddress,
+  useInitialization,
   web3WalletPair,
   web3wallet,
 } from './services/walletConnect/web3wallet/walletConnectUtils';
@@ -22,6 +23,8 @@ function App() {
   const [successfulSession, setSuccessfulSession] = useState(false);
 
   const { verifiedWallet } = useWalletContext();
+
+  useInitialization();
 
   const handleWcURIChange = (event) => {
     setWcURI(event.target.value);

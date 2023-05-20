@@ -1,0 +1,26 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  max-height: calc(100% - 120px);
+  overflow-y: auto;
+}
+
+.header {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.header > button {
+  width: auto;
+  box-sizing: border-box;
+}
+
+.notFound {
+  font-size: 22px;
+  text-align: center;
+  font-weight: 600;
+}

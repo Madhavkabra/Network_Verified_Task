@@ -1,0 +1,48 @@
+.basicInfoContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 20px 10px;
+  border-bottom: 1px solid var(--color-gray700);
+}
+
+.imgAndNameContainer {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.basicInfoContainer > button {
+  width: auto;
+  align-self: flex-end;
+}
+
+.img {
+  height: 40px;
+  width: 40px;
+  border-radius: 999px;
+
+  object-fit: cover;
+}
+
+.nameAndUrlContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.name {
+  font-size: 18px;
+  color: var(--color-white);
+}
+
+.url {
+  font-size: 16px;
+  color: var(--color-blue500);
+  text-decoration: none;
+}
+
+.url:hover {
+  opacity: 0.8;
+}

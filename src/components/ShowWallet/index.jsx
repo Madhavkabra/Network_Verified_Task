@@ -10,16 +10,26 @@ import PairingModal from '../PairingModal';
 import { useSessionProposal } from '../../hooks/useSessionProposal';
 import { useSessionRequest } from '../../hooks/useSessionRequest';
 import SigningModal from '../SigningModal';
+import { useSessionDisconnect } from '../../hooks/useSessionDisconnect';
+import { PairingList } from '../PairingList';
 
 export const ShowWallet = () => {
   const [wcUri, setWcUri] = useState('');
+  const [activeTab, setActiveTab] = useState();
   const { ethAddress } = useWalletContext();
 
-  const { proposal, acceptSessionProposal, cancelSessionProposal } =
-    useSessionProposal({ setWcUri });
+  const {
+    proposal,
+    acceptSessionProposal,
+    cancelSessionProposal,
+    successfulSession,
+    setSuccessfulSession,
+  } = useSessionProposal({ setWcUri });
 
   const { requestEvent, requestSession, setRequestEvent, setRequestSession } =
     useSessionRequest();
+
+  const { disconnectSessions } = useSessionDisconnect({ setSuccessfulSession });
 
   const handleWcUriChange = (event) => {
     setWcUri(event.target.value);
@@ -30,28 +40,58 @@ export const ShowWallet = () => {
   };
 
   return (
-    <Container>
-      <Heading title='Wallet Information' />
+    <>
+      {activeTab === 'pairing' && <PairingList onBack={() => setActiveTab()} />}
 
-      <div>
-        <h4 className={styles.title}>ETH Address</h4>
+      {!activeTab && (
+        <Container>
+          <Heading title='Wallet Information' />
 
-        <p className={styles.walletAddressText}>{ethAddress}</p>
+          <div className={styles.root}>
+            <div>
+              <h4 className={styles.title}>ETH Address</h4>
 
-        <div className={styles.formContainer}>
-          <Input
-            placeholder='Enter WC URI (wc:2131...)'
-            value={wcUri}
-            onChange={handleWcUriChange}
-          />
-          <Button
-            title='Pair Wallet'
-            variant='error'
-            onClick={handlePairWallet}
-            disabled={!wcUri}
-          />
-        </div>
-      </div>
+              <p className={styles.walletAddressText}>{ethAddress}</p>
+
+              <div className={styles.formContainer}>
+                {!successfulSession ? (
+                  <>
+                    <Input
+                      placeholder='Enter WC URI (wc:2131...)'
+                      value={wcUri}
+                      onChange={handleWcUriChange}
+                    />
+                    <Button
+                      title='Pair Wallet'
+                      variant='error'
+                      onClick={handlePairWallet}
+                      disabled={!wcUri}
+                    />
+                  </>
+                ) : (
+                  <Button
+                    title='Disconnect Wallet'
+                    variant='warning'
+                    onClick={disconnectSessions}
+                  />
+                )}
+              </div>
+            </div>
+
+            <div className={styles.actionButtonContainer}>
+              <Button
+                title='Pairings'
+                variant='error'
+                onClick={() => setActiveTab('pairing')}
+              />
+              <Button
+                title='Sessions'
+                variant='warning'
+              />
+            </div>
+          </div>
+        </Container>
+      )}
 
       <PairingModal
         proposal={proposal}
@@ -65,6 +105,6 @@ export const ShowWallet = () => {
         setRequestEvent={setRequestEvent}
         setRequestSession={setRequestSession}
       />
-    </Container>
+    </>
   );
 };
