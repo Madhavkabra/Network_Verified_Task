@@ -1,4 +1,5 @@
 :root {
+  --color-gray300: #c1c1c1;
   --color-gray900: #111111;
   --color-gray700: #444444;
   --color-purple500: #7928ca;
@@ -11,6 +12,8 @@
   --color-red900: #3c0216;
   --color-yellow500: #f5a623;
   --color-yellow900: #3d2705;
+  --color-green500: #17c964;
+  --color-green900: #033116;
 }
 
 body {
@@ -21,6 +24,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--color-black);
+  color: white;
 }
 
 code {

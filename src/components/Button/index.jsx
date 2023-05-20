@@ -6,6 +6,7 @@ import styles from './styles.module.css';
 const buttonVarians = {
   error: 'buttonError',
   warning: 'buttonWarning',
+  success: 'buttonSuccess',
 };
 
 export const Button = ({ title, onClick, variant, disabled }) => {

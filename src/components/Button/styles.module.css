@@ -28,3 +28,8 @@
   background-color: var(--color-yellow900);
   color: var(--color-yellow500);
 }
+
+.buttonSuccess {
+  background-color: var(--color-green900);
+  color: var(--color-green500);
+}
