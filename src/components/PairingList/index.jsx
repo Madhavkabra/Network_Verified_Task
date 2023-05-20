@@ -27,7 +27,9 @@ export const PairingList = ({ onBack }) => {
   }, []);
 
   const disconnectPair = useCallback(async (topic) => {
-    await web3wallet.core.pairing.disconnect({ topic });
+    await web3wallet.core.pairing.disconnect({
+      topic,
+    });
 
     getPairingList();
   }, []);

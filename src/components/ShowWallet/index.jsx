@@ -12,6 +12,7 @@ import { useSessionRequest } from '../../hooks/useSessionRequest';
 import SigningModal from '../SigningModal';
 import { useSessionDisconnect } from '../../hooks/useSessionDisconnect';
 import { PairingList } from '../PairingList';
+import { SessionList } from '../SessionList';
 
 export const ShowWallet = () => {
   const [wcUri, setWcUri] = useState('');
@@ -42,6 +43,12 @@ export const ShowWallet = () => {
   return (
     <>
       {activeTab === 'pairing' && <PairingList onBack={() => setActiveTab()} />}
+      {activeTab === 'session' && (
+        <SessionList
+          onBack={() => setActiveTab()}
+          setSuccessfulSession={setSuccessfulSession}
+        />
+      )}
 
       {!activeTab && (
         <Container>
@@ -70,7 +77,7 @@ export const ShowWallet = () => {
                   </>
                 ) : (
                   <Button
-                    title='Disconnect Wallet'
+                    title='Disconnect Current Session'
                     variant='warning'
                     onClick={disconnectSessions}
                   />
@@ -87,6 +94,7 @@ export const ShowWallet = () => {
               <Button
                 title='Sessions'
                 variant='warning'
+                onClick={() => setActiveTab('session')}
               />
             </div>
           </div>
