@@ -43,7 +43,6 @@ export const useSessionProposal = ({ setWcUri }) => {
       setProposal(undefined);
       setSuccessfulSession(true);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ethAddress, proposal]);
 
   const cancelSessionProposal = useCallback(async () => {
@@ -58,7 +57,6 @@ export const useSessionProposal = ({ setWcUri }) => {
       setWcUri('');
       setProposal(undefined);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [proposal]);
 
   useEffect(() => {

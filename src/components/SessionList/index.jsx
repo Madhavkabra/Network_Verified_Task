@@ -36,7 +36,6 @@ export const SessionList = ({ onBack, setSuccessfulSession }) => {
 
     getSessionList();
     setSuccessfulSession(false);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

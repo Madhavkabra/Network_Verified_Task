@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { WalletContext } from './walletContext';
 
 export const WalletContextProvider = ({ children }) => {
@@ -26,4 +27,11 @@ export const WalletContextProvider = ({ children }) => {
       {children}
     </WalletContext.Provider>
   );
+};
+
+WalletContextProvider.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.node,
+    PropTypes.arrayOf(PropTypes.node),
+  ]),
 };

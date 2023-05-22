@@ -6,6 +6,7 @@ export let web3wallet;
 
 const createWeb3Wallet = async () => {
   const core = new Core({
+    // eslint-disable-next-line no-undef
     projectId: process.env.REACT_APP_WALLET_CONNECT_PROJECT_ID,
   });
 

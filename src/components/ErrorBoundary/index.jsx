@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Modal } from '../Modal';
 import { Container } from '../Container';
 import { Heading } from '../Heading';
@@ -11,7 +12,7 @@ export default class ErrorBoundary extends Component {
     this.state = { hasError: false, error: '' };
   }
 
-  static getDerivedStateFromError(error) {
+  static getDerivedStateFromError() {
     return { hasError: true };
   }
 
@@ -50,3 +51,10 @@ export default class ErrorBoundary extends Component {
     return this.props.children;
   }
 }
+
+ErrorBoundary.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.node,
+    PropTypes.arrayOf(PropTypes.node),
+  ]),
+};
