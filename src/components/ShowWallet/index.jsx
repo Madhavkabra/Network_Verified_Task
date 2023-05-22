@@ -53,7 +53,7 @@ export const ShowWallet = () => {
         <Container>
           <Heading title='Wallet Information' />
 
-          <div className='h-[calc(100%-60px)] flex flex-col justify-between'>
+          <div className='h-[calc(100%-33px)] flex flex-col justify-between'>
             <div>
               <h4 className='text-gray-900 font-semibold text-lg text-center pb-2 pt-4'>
                 ETH Address

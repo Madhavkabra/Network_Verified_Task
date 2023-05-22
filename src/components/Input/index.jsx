@@ -10,7 +10,7 @@ export const Input = ({ name, value, placeholder, customStyle, onChange }) => {
       onChange={onChange}
       placeholder={placeholder}
       className={cx(
-        'rounded-lg border-2 border-4 border-cyan-500 px-3 py-2 focus:border-cyan-600 outline-0 text-gray-600',
+        'rounded-lg border border-cyan-500 px-3 py-2 focus:border-cyan-600 outline-0 text-gray-600',
         customStyle
       )}
     />
