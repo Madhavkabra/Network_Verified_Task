@@ -1,70 +1,46 @@
-# Getting Started with Create React App
+# Verified Network Taks
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project offers you the ability to create a new wallet or import a mnemonics wallet from `verified-network-sdk` with WalletConnect integration. You can see a live demo [here]()
 
-## Available Scripts
+## Tech Stack
 
-In the project directory, you can run:
+1. `React.Js`(18.2.0)
+2. `@verified-network/verified-sdk`(1.0.6)
+3. `@walletconnect/web3wallet`(1.7.3)
 
-### `npm start`
+## Requirement to run the application on local
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+1. You must have installed Node Package Manager (NPM) on your machine
+2. Create a `.env` file in the root directory of application
+3. Copy content from `.env.example` file and paste it into `.env` file
+4. Assign `WalletConnect` ProjectId in `REACT_APP_WALLET_CONNECT_PROJECT_ID` env variable in `.env` file
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Steps to start an application on local
 
-### `npm test`
+1. Move into the root directory of the application
+2. Run `npm install`
+3. Run `npm start`. This will run an application on a local server. You can open this by opening or clicking [http://localhost:3000/](http://localhost:3000/) in your browser
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Features we added
 
-### `npm run build`
+1. The user can create a new wallet or import a mnemonics wallet using `verified-network-sdk`
+2. The user can pair a created or imported wallet with `WalletConnect` [Dapp](https://react-app.walletconnect.com/)
+3. The user can get a sign request from `Dapp`
+4. The user can see paired wallet lists
+5. The user can see the signed session lists
+6. The user can delete paired wallet from the pair list
+7. The user can disconnect signed session from the session list
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Limitations
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. Currently, we need to create a wallet every time after refreshing the page in the browser.
+2. Not storing wallet information in local storage or any other storage for future use.
+3. Currently, we only have a way to pair `Dapps` using `WC URI`.
+4. I can't test `Send Transaction` request as it shows
+   `Insufficient funds for intrinsic transaction cost`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Features we can add
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. Persist wallet data
+2. Add functionality to use a previously created wallet along with creating a new wallet
+3. Add a QR code scanner to pair with `Dapps`
