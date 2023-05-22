@@ -1,12 +1,13 @@
 # Verified Network Taks
 
-This project offers you the ability to create a new wallet or import a mnemonics wallet from `verified-network-sdk` with WalletConnect integration. You can see a live demo [here]()
+This project offers you the ability to create a new wallet or import a mnemonics wallet from `verified-network-sdk` with WalletConnect integration. You can see a live demo [here](https://madhavkabra.github.io/Network_Verified_Task/)
 
 ## Tech Stack
 
 1. `React.Js`(18.2.0)
 2. `@verified-network/verified-sdk`(1.0.6)
 3. `@walletconnect/web3wallet`(1.7.3)
+4. `eslint`
 
 ## Requirement to run the application on local
 
