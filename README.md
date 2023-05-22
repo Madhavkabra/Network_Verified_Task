@@ -8,6 +8,7 @@ This project offers you the ability to create a new wallet or import a mnemonics
 2. `@verified-network/verified-sdk`(1.0.6)
 3. `@walletconnect/web3wallet`(1.7.3)
 4. `eslint`
+5. `tailwind`
 
 ## Requirement to run an application on local
 
