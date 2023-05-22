@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Network_Verified_Task/static/css/main.7879c547.css",
+    "main.js": "/Network_Verified_Task/static/js/main.17bce214.js",
+    "index.html": "/Network_Verified_Task/index.html",
+    "main.7879c547.css.map": "/Network_Verified_Task/static/css/main.7879c547.css.map",
+    "main.17bce214.js.map": "/Network_Verified_Task/static/js/main.17bce214.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7879c547.css",
+    "static/js/main.17bce214.js"
+  ]
+}
