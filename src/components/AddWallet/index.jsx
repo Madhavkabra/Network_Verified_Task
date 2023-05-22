@@ -3,7 +3,6 @@ import React from 'react';
 import { Container } from '../Container';
 import { Heading } from '../Heading';
 import { Button } from '../Button';
-import styles from './styles.module.css';
 import { useWalletContext } from '../../store/wallet/walletContext';
 
 export const AddWallet = () => {
@@ -28,7 +27,7 @@ export const AddWallet = () => {
     <Container>
       <Heading title='Add New Wallet' />
 
-      <div className={styles.buttonContainer}>
+      <div className='flex gap-4 items-center justify-center w-full h-[calc(100%-80px)]'>
         <Button
           title='Import Mnemonics Wallet'
           variant='error'

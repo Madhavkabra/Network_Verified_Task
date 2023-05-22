@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './styles.module.css';
 
 export const Container = ({ children }) => {
   return (
-    <div className={styles.root}>
-      <div className={styles.container}>{children}</div>
+    <div className='w-full h-screen flex justify-center items-center'>
+      <div className='h-[80%] w-[500px] px-6 pt-10 pb-8 bg-white shadow-xl rounded-lg shadow-xl ring-1 ring-gray-900/5'>
+        {children}
+      </div>
     </div>
   );
 };

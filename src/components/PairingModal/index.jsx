@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Modal } from '../Modal';
-import styles from './styles.module.css';
 import { Heading } from '../Heading';
 import { Button } from '../Button';
 import { EIP155_CHAINS } from '../../services/walletConnect/web3wallet/eip155Lib';
@@ -20,20 +19,20 @@ export const PairingModal = ({ proposal, onAccept, onCancel }) => {
   return (
     <Modal open>
       <Heading title='Session Proposal' />
-      <div className={styles.root}>
-        <div className={styles.basicInfoContainer}>
+      <div className='mt-10 max-w-[400px]'>
+        <div className='flex gap-4 items-center'>
           <img
             src={icon}
             alt={name}
-            className={styles.img}
+            className='w-10 h-10 rounded-full object-cover'
           />
 
-          <div className={styles.nameAndUrlContainer}>
-            <label className={styles.name}>{name}</label>
+          <div className='flex flex-col gap-1'>
+            <label className='text-gray-600 text-md font-medium'>{name}</label>
             <a
               href={url}
               target='_blank'
-              className={styles.url}
+              className='text-sky-500 hover:text-sky-600'
               rel='noreferrer'
             >
               {url}
@@ -42,26 +41,28 @@ export const PairingModal = ({ proposal, onAccept, onCancel }) => {
         </div>
 
         <div>
-          <p className={styles.heading}>Review eip155 permissions</p>
+          <p className='font-semibold text-lg text-gray-600 mt-6 mb-3'>
+            Review eip155 permissions
+          </p>
 
-          <div className={styles.reviewContainer}>
-            <label className={styles.heading}>
+          <div>
+            <label className='font-semibold text-md text-gray-600'>
               {EIP155_CHAINS[chains]?.name || chains}
             </label>
 
-            <p className={styles.subHeading}>Methods</p>
-            <label className={styles.descriptionText}>
+            <p className='text-gray-500 font-medium mt-1'>Methods</p>
+            <label className='text-gray-400 pb-2 block'>
               {methods?.map((method) => method).join(', ')}
             </label>
 
-            <p className={styles.subHeading}>Events</p>
-            <label className={styles.descriptionText}>
+            <p className='text-gray-500 font-medium mt-1'>Events</p>
+            <label className='text-gray-400 pb-2'>
               {events?.map((event) => event).join(', ')}
             </label>
           </div>
         </div>
 
-        <div className={styles.actionContainer}>
+        <div className='mt-12 flex justify-end items-center gap-3'>
           <Button
             title='Cancel'
             onClick={onCancel}

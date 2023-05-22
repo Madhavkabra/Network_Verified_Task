@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
-import styles from './styles.module.css';
 
 export const Input = ({ name, value, placeholder, customStyle, onChange }) => {
   return (
@@ -10,7 +9,10 @@ export const Input = ({ name, value, placeholder, customStyle, onChange }) => {
       value={value}
       onChange={onChange}
       placeholder={placeholder}
-      className={cx(styles.input, customStyle)}
+      className={cx(
+        'rounded-lg border-2 border-4 border-cyan-500 px-3 py-2 focus:border-cyan-600 outline-0 text-gray-600',
+        customStyle
+      )}
     />
   );
 };

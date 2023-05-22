@@ -1,18 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import cx from 'classnames';
-import styles from './styles.module.css';
 
-const buttonVarians = {
-  error: 'buttonError',
-  warning: 'buttonWarning',
-  success: 'buttonSuccess',
-};
-
-export const Button = ({ title, onClick, variant, disabled }) => {
+export const Button = ({ title, onClick, disabled }) => {
   return (
     <button
-      className={cx(styles.button, styles[buttonVarians[variant]])}
+      className='px-6 py-2 rounded-full bg-cyan-500 hover:bg-cyan-600 disabled:bg-gray-300'
       disabled={disabled}
       onClick={onClick}
     >
@@ -24,6 +16,5 @@ export const Button = ({ title, onClick, variant, disabled }) => {
 Button.propTypes = {
   title: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
-  variant: PropTypes.oneOf(['error', 'warning', 'success']),
   disabled: PropTypes.bool,
 };

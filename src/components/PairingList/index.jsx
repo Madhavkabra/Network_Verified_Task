@@ -4,7 +4,6 @@ import { web3wallet } from '../../services/walletConnect/web3wallet/walletConnec
 import { Container } from '../Container';
 import { Heading } from '../Heading';
 import { Button } from '../Button';
-import styles from './styles.module.css';
 import { WalletListItem } from '../WalletListItem';
 
 export const PairingList = ({ onBack }) => {
@@ -37,7 +36,7 @@ export const PairingList = ({ onBack }) => {
 
   return (
     <Container>
-      <div className={styles.header}>
+      <div className='flex justify-between items-center gap-3'>
         <Button
           title='Go Back'
           variant='error'
@@ -46,7 +45,7 @@ export const PairingList = ({ onBack }) => {
         <Heading title='Pairing List' />
       </div>
 
-      <div className={styles.root}>
+      <div className='flex flex-col max-h-[calc(100%-120px)] overflow-y-auto'>
         {pairs?.map((pair, pairIndex) => (
           <WalletListItem
             key={`${pairIndex}-${pair.topic}`}
@@ -57,7 +56,11 @@ export const PairingList = ({ onBack }) => {
           />
         ))}
 
-        {!pairs.length && <p className={styles.notFound}>No Pairs Found</p>}
+        {!pairs.length && (
+          <p className='text-center text-xl font-semibold text-gray-600 mt-10'>
+            No Pairs Found
+          </p>
+        )}
       </div>
     </Container>
   );

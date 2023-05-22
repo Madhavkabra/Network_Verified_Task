@@ -1,15 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './styles.module.css';
 
 export const Heading = ({ title }) => {
-  return (
-    <>
-      <h1 className={styles.title}>{title}</h1>
-
-      <hr className={styles.divider} />
-    </>
-  );
+  return <h1 className='text-2xl font-semibold text-gray-900'>{title}</h1>;
 };
 
 Heading.propTypes = {

@@ -8,7 +8,11 @@ function App() {
 
   useInitialization();
 
-  return !verifiedWallet ? <AddWallet /> : <ShowWallet />;
+  return (
+    <div className='bg-gray-50'>
+      {!verifiedWallet ? <AddWallet /> : <ShowWallet />}
+    </div>
+  );
 }
 
 export default App;

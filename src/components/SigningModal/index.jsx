@@ -15,7 +15,6 @@ import {
   EIP155_CHAINS,
   EIP155_SIGNING_NAME,
 } from '../../services/walletConnect/web3wallet/eip155Lib';
-import styles from './styles.module.css';
 
 export const SigningModal = ({
   requestSession,
@@ -75,20 +74,22 @@ export const SigningModal = ({
     <Modal open>
       <Heading title={EIP155_SIGNING_NAME[method]} />
 
-      <div className={styles.root}>
-        <div className={styles.basicInfoContainer}>
+      <div className='mt-10 max-w-[400px]'>
+        <div className='flex gap-4 items-center'>
           <img
             src={requestIcon}
             alt={requestName}
-            className={styles.img}
+            className='w-10 h-10 rounded-full object-cover'
           />
 
-          <div className={styles.nameAndUrlContainer}>
-            <label className={styles.name}>{requestName}</label>
+          <div className='flex flex-col gap-1'>
+            <label className='text-gray-600 text-md font-medium'>
+              {requestName}
+            </label>
             <a
               href={requestURL}
               target='_blank'
-              className={styles.url}
+              className='text-sky-500 hover:text-sky-600'
               rel='noreferrer'
             >
               {requestURL}
@@ -96,36 +97,50 @@ export const SigningModal = ({
           </div>
         </div>
 
-        <div className={styles.infoSection}>
+        <div className='flex flex-col gap-10 mt-5'>
           <div>
-            <p className={styles.heading}>Data</p>
+            <p className='font-semibold text-lg text-gray-600 mt-6 mb-3'>
+              Data
+            </p>
 
-            <div className={styles.reviewContainer}>
-              <pre className={styles.data}>{formattedMessage}</pre>
+            <div className='pl-4 border-box'>
+              <pre className='text-gray-500 whitespace-pre-wrap'>
+                {formattedMessage}
+              </pre>
             </div>
           </div>
 
           <div>
-            <p className={styles.heading}>Extra Information</p>
+            <p className='font-semibold text-lg text-gray-600 mt-6 mb-3'>
+              Extra Information
+            </p>
 
-            <div className={styles.reviewContainer}>
-              <p className={styles.heading}>Blockchain</p>
-              <label className={styles.descriptionText}>
+            <div className='pl-4 border-box'>
+              <p className='font-semibold text-lg text-gray-600 mt-6 mb-3'>
+                Blockchain
+              </p>
+              <label className='font-semibold text-md text-gray-500'>
                 {EIP155_CHAINS[chainID.toLowerCase()]?.name || chainID}
               </label>
 
-              <p className={styles.heading}>Methods</p>
-              <label className={styles.descriptionText}>{method}</label>
+              <p className='font-semibold text-lg text-gray-600 mt-6 mb-3'>
+                Methods
+              </p>
+              <label className='font-semibold text-md text-gray-500'>
+                {method}
+              </label>
 
-              <p className={styles.heading}>Relay Protocol</p>
-              <label className={styles.descriptionText}>
+              <p className='font-semibold text-lg text-gray-600 mt-6 mb-3'>
+                Relay Protocol
+              </p>
+              <label className='font-semibold text-md text-gray-500'>
                 {requestProtocol}
               </label>
             </div>
           </div>
         </div>
 
-        <div className={styles.actionContainer}>
+        <div className='mt-12 flex justify-end items-center gap-3'>
           <Button
             title='Approve'
             onClick={onApprove}

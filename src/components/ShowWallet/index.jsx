@@ -5,7 +5,6 @@ import { useWalletContext } from '../../store/wallet';
 import { Input } from '../Input';
 import { Button } from '../Button';
 import { web3WalletPair } from '../../services/walletConnect/web3wallet/walletConnectUtils';
-import styles from './styles.module.css';
 import { PairingModal } from '../PairingModal';
 import { useSessionProposal } from '../../hooks/useSessionProposal';
 import { useSessionRequest } from '../../hooks/useSessionRequest';
@@ -54,13 +53,15 @@ export const ShowWallet = () => {
         <Container>
           <Heading title='Wallet Information' />
 
-          <div className={styles.root}>
+          <div className='h-[calc(100%-60px)] flex flex-col justify-between'>
             <div>
-              <h4 className={styles.title}>ETH Address</h4>
+              <h4 className='text-gray-900 font-semibold text-lg text-center pb-2 pt-4'>
+                ETH Address
+              </h4>
 
-              <p className={styles.walletAddressText}>{ethAddress}</p>
+              <p className='text-sky-500 text-center'>{ethAddress}</p>
 
-              <div className={styles.formContainer}>
+              <div className='flex gap-3 items-center justify-center mt-24'>
                 {!successfulSession ? (
                   <>
                     <Input
@@ -85,7 +86,7 @@ export const ShowWallet = () => {
               </div>
             </div>
 
-            <div className={styles.actionButtonContainer}>
+            <div className='flex justify-end gap-4'>
               <Button
                 title='Pairings'
                 variant='error'

@@ -4,7 +4,6 @@ import { Modal } from '../Modal';
 import { Container } from '../Container';
 import { Heading } from '../Heading';
 import { Button } from '../Button';
-import styles from './styles.module.css';
 
 export default class ErrorBoundary extends Component {
   constructor(props) {
@@ -27,7 +26,7 @@ export default class ErrorBoundary extends Component {
           <Container>
             <Heading title='Something went wrong!' />
 
-            <div className={styles.root}>
+            <div className='flex justify-center items-center width-full h-[calc(100%-60px)]'>
               <p>{this.state.error}</p>
 
               <div>
