@@ -34,12 +34,13 @@ export const approveEIP155Request = async (wallet, requestEvent) => {
       return formatJsonRpcResult(id, signedData);
 
     case EIP155_SIGNING_METHODS.ETH_SEND_TRANSACTION:
-      const defaultProvider = 'ropsten';
-      let walletWithProvider = wallet.setProvider(
-        Provider.defaultProvider(defaultProvider)
-      );
+      const defaultProvider =
+        'https://goerli.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161';
+
+      const provider = Provider.defaultProvider(defaultProvider);
       const sendTransaction = request.params[0];
-      const connectedWallet = walletWithProvider.connect();
+      const connectedWallet = wallet.connect(provider);
+
       const { hash } = await connectedWallet.sendTransaction(sendTransaction);
       return formatJsonRpcResult(id, hash);
 
