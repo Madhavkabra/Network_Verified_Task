@@ -26,7 +26,7 @@ This project offers you the ability to create a new wallet or import a mnemonics
 ## Features we added
 
 1. The user can create a new wallet or import a mnemonics wallet using `verified-network-sdk`
-2. The user can pair a created or imported wallet with `WalletConnect` [Dapp](https://react-app.walletconnect.com/)
+2. The user can pair a created or imported wallet with `WalletConnect` [Dapp](https://react-dapp-v2-with-web3js.vercel.app/)
 3. The user can get a sign request from `Dapp`
 4. The user can see paired wallet lists
 5. The user can see the signed session lists
