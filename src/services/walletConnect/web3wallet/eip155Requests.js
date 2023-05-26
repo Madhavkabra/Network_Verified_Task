@@ -41,8 +41,13 @@ export const approveEIP155Request = async (wallet, requestEvent) => {
       const sendTransaction = request.params[0];
       const connectedWallet = wallet.connect(provider);
 
-      const { hash } = await connectedWallet.sendTransaction(sendTransaction);
-      return formatJsonRpcResult(id, hash);
+      try {
+        const { hash } = await connectedWallet.sendTransaction(sendTransaction);
+        return formatJsonRpcResult(id, hash);
+      } catch (error) {
+        alert(error.message);
+        return formatJsonRpcError(id, error.message);
+      }
 
     case EIP155_SIGNING_METHODS.ETH_SIGN_TRANSACTION:
       const signTransaction = request.params[0];
